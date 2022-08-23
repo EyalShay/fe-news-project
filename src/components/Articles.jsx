@@ -24,10 +24,10 @@ export default function Articles() {
         {articlesArray.map(({ article_id, title, author, topic }) => {
           return (
             <li className="articles" key={article_id}>
-              <p class="topic">
+              <p className="topic">
                 Topic:{" "}
                 <Link to={`/topics/${topic}`}>
-                  <button id="button-2">{topic}</button>
+                  <button className="button-2">{topic}</button>
                 </Link>
               </p>
               <Link to={`/articles/${article_id}`}>

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
 import { fetchArticle } from "../api";
+import Votes from "./Votes";
 
 export default function Article() {
   const { article_id } = useParams();
@@ -23,7 +24,7 @@ export default function Article() {
 
   return (
     <section>
-      <p class="topic">Topic: {topic}</p>
+      <p className="topic">Topic: {topic}</p>
       <p>Published on: {new Date(created_at).toDateString()}</p>
       <h2>
         {title} by {author}
@@ -31,8 +32,9 @@ export default function Article() {
 
       <p>{body}</p>
       <p>
-        votes: {votes} comments: {comment_count}
+        <Votes votes={votes} article_id={article_id} />
       </p>
+      <p>comments: {comment_count}</p>
       <Comments article_id={article_id} />
     </section>
   );

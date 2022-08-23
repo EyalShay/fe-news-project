@@ -21,16 +21,14 @@ export default function Topics() {
       <ul>
         {topicsArray.map(({ slug, description }) => {
           return (
-            <li>
-              <p class="topic">
+            <li key={slug}>
+              <p className="topic">
                 Topic:{" "}
                 <Link to={`/topics/${slug}`}>
-                  <button id="button-2">{slug}</button>
+                  <button className="button-2">{slug}</button>
                 </Link>
               </p>
-              <p>
-                <h3>Description: {description}</h3>
-              </p>
+              <h3>Description: {description}</h3>
             </li>
           );
         })}
