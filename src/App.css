@@ -62,11 +62,17 @@ p {
   font-family: monospace;
 }
 
-#button-2 {
+.button-2 {
   background-color: rgb(109, 255, 209);
   block-size: 1.4rem;
   font-size: 10px;
   color: rgb(0, 0, 0);
+}
+
+.button-3 {
+  background-color: yellow;
+  block-size: 1.4rem;
+  font-size: 10px;
 }
 
 h3 {
@@ -82,4 +88,8 @@ li {
   list-style: none;
   text-align: center;
   padding-right: 2rem;
+}
+
+#votes {
+  color: rgb(187, 11, 46);
 }

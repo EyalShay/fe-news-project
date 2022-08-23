@@ -22,7 +22,7 @@ export default function Home() {
       <img
         id="home-image"
         src="https://media.giphy.com/media/gb5fshVgkJtjm6tmDx/giphy.gif"
-        alt="man reading"
+        alt="a man reading the newspaper"
       />
       <h2>Article of the Day:</h2>
       <h3>
