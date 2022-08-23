@@ -6,8 +6,8 @@ import { fetchArticle } from "../api";
 export default function Article() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
-
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setIsLoading(true);
     fetchArticle(article_id).then(({ article }) => {
@@ -23,8 +23,8 @@ export default function Article() {
 
   return (
     <section>
-      <p>Topic: {topic}</p>
-      <p>Published on: {created_at}</p>
+      <p class="topic">Topic: {topic}</p>
+      <p>Published on: {new Date(created_at).toDateString()}</p>
       <h2>
         {title} by {author}
       </h2>
