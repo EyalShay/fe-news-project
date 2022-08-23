@@ -1,3 +1,85 @@
+* {
+  background-color: rgb(175, 243, 220);
+}
+
+header {
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
 .App {
   text-align: center;
+}
+
+button {
+  background-color: rgb(234, 217, 196);
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+}
+
+button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+h1 {
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+#home-image {
+  padding-top: 2rem;
+}
+
+Link {
+  color: blueviolet;
+}
+
+p {
+  font-family: "Times New Roman";
+  font-weight: bold;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.topic {
+  font-size: 16px;
+  color: rgb(187, 11, 46);
+  font-weight: 800;
+  font-family: monospace;
+}
+
+#button-2 {
+  background-color: rgb(109, 255, 209);
+  block-size: 1.4rem;
+  font-size: 10px;
+  color: rgb(0, 0, 0);
+}
+
+h3 {
+  font-family: monospace;
+  color: rgb(47, 53, 51);
+}
+
+li {
+  list-style: square;
+}
+
+#comments-list {
+  list-style: none;
+  text-align: center;
+  padding-right: 2rem;
 }
