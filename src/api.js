@@ -33,3 +33,16 @@ export const patchArticle = (article_id, vote_count) => {
     { inc_votes: vote_count }
   );
 };
+
+export const postComment = (article_id, newComment) => {
+  return axios.post(
+    `https://eyal-ncnews.herokuapp.com/api/articles/${article_id}/comments`,
+    newComment
+  );
+};
+
+export const fetchComments = (article_id) => {
+  return axios.get(
+    `https://eyal-ncnews.herokuapp.com/api/articles/${article_id}/comments`
+  );
+};

@@ -1,5 +1,5 @@
 * {
-  background-color: rgb(175, 243, 220);
+  background-color: rgb(215, 255, 242);
 }
 
 header {
@@ -70,9 +70,10 @@ p {
 }
 
 .button-3 {
-  background-color: yellow;
+  background-color: rgb(234, 255, 1);
   block-size: 1.4rem;
   font-size: 10px;
+  border-radius: 2rem;
 }
 
 h3 {
@@ -84,12 +85,91 @@ li {
   list-style: square;
 }
 
+#votes {
+  color: rgb(187, 11, 46);
+  font-weight: 800;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+#error {
+  background-color: white;
+  color: rgb(255, 0, 0);
+  font-family: monospace;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 0.5rem;
+}
+
+#message {
+  background-color: white;
+  color: rgb(0, 0, 194);
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 14px;
+  font-family: monospace;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 0.5rem;
+}
+
+.comments {
+  color: rgb(187, 11, 46);
+  font-weight: 800;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+#comments-body {
+  font-family: georgia;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#view-comment {
+  margin-bottom: 1rem;
+}
+
 #comments-list {
   list-style: none;
   text-align: center;
   padding-right: 2rem;
 }
 
-#votes {
-  color: rgb(187, 11, 46);
+#comment-date {
+  margin-left: 1rem;
+  color: rgb(95, 95, 95);
+  font-size: small;
+}
+
+#published {
+  font-style: italic;
+  color: rgb(77, 77, 77);
+}
+
+input {
+  border: none;
+  appearance: none;
+  background-color: rgba(255, 39, 39, 0.681);
+  border-style: solid;
+  border-radius: 1rem;
+  width: 250px;
+  border-color: rgb(210, 0, 0);
+  outline-color: rgb(242, 255, 0);
+}
+
+input::placeholder {
+  color: rgb(63, 1, 1);
+}
+
+#article-body {
+  font-family: verdana;
+  color: rgb(53, 53, 53);
 }

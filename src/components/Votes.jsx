@@ -18,14 +18,14 @@ export default function Votes({ votes, article_id }) {
   };
 
   return (
-    <div id="votes">
-      Votes: {votes + optimisticVotes}&emsp;
+    <span id="votes">
+      {votes + optimisticVotes}&emsp;Votes&emsp;
       <button className="button-3" onClick={incrementVotes}>
-        Up-Vote
+        Upvote
       </button>
       <button className="button-3" onClick={decrementVotes}>
-        Down-Vote
+        Downvote
       </button>
-    </div>
+    </span>
   );
 }

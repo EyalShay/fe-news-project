@@ -24,11 +24,11 @@ export default function Home() {
         src="https://media.giphy.com/media/gb5fshVgkJtjm6tmDx/giphy.gif"
         alt="a man reading the newspaper"
       />
-      <h2>Article of the Day:</h2>
+      <h2>Article of the Day: </h2>
       <h3>
         {title} by {author}
       </h3>
-      <p>{body}</p>
+      <p id="article-body">{body}</p>
     </div>
   );
 }
