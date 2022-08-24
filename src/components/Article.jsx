@@ -24,17 +24,15 @@ export default function Article() {
 
   return (
     <section>
-      <p className="topic">Topic: {topic}</p>
-      <p>Published on: {new Date(created_at).toDateString()}</p>
+      <p className="topic">{topic}</p>
       <h2>
         {title} by {author}
       </h2>
-
-      <p>{body}</p>
+      <p id="published">Published {new Date(created_at).toDateString()}</p>
+      <p id="article-body">{body}</p>
       <p>
         <Votes votes={votes} article_id={article_id} />
       </p>
-      <p>comments: {comment_count}</p>
       <Comments article_id={article_id} comment_count={comment_count} />
     </section>
   );

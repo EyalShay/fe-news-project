@@ -12,7 +12,11 @@ export default function Comments({ article_id, comment_count }) {
       setComments(data.comments);
     });
   };
-
+  function orderByDate(a, b) {
+    let total = 0;
+    a.created_at > b.created_at ? (total = -1) : (total = 1);
+    return total;
+  }
   return (
     <section>
       <button id="view-comment" onClick={handleClick}>
@@ -27,16 +31,22 @@ export default function Comments({ article_id, comment_count }) {
         {isLoading === true ? (
           <p>Loading...</p>
         ) : (
-          comments.map(({ body, comment_id, author, votes, created_at }) => {
-            return (
-              <li id="comments-list" key={comment_id}>
-                <p className="author">comment by: {author}</p>
-                <p className="comments">{body}</p>
-                <p className="date">{new Date(created_at).toDateString()}</p>
-                <p id="votes">votes: {votes}</p>
-              </li>
-            );
-          })
+          comments
+            .sort(orderByDate)
+            .map(({ body, comment_id, author, votes, created_at }) => {
+              return (
+                <li id="comments-list" key={comment_id}>
+                  <p className="author">
+                    {author}
+                    <span id="comment-date">
+                      {new Date(created_at).toDateString()}
+                    </span>
+                  </p>
+                  <p id="comments-body">{body}</p>
+                  <p id="votes">votes: {votes}</p>
+                </li>
+              );
+            })
         )}
       </ul>
     </section>

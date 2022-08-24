@@ -19,7 +19,7 @@ export default function Votes({ votes, article_id }) {
 
   return (
     <span id="votes">
-      Votes: {votes + optimisticVotes}&emsp;
+      {votes + optimisticVotes}&emsp;Votes&emsp;
       <button className="button-3" onClick={incrementVotes}>
         Upvote
       </button>

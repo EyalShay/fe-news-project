@@ -28,7 +28,7 @@ export default function Home() {
       <h3>
         {title} by {author}
       </h3>
-      <p>{body}</p>
+      <p id="article-body">{body}</p>
     </div>
   );
 }

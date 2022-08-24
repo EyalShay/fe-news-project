@@ -7,6 +7,13 @@ export default function NewComment({ article_id, comment_count, setComments }) {
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [optimisticComments, setOptimisticComments] = useState(0);
+
+  const incrementComments = () => {
+    setOptimisticComments((currOptimisticComments) => {
+      return currOptimisticComments + 1;
+    });
+  };
 
   const handleSubmit = (event) => {
     setIsLoading(true);
@@ -20,6 +27,7 @@ export default function NewComment({ article_id, comment_count, setComments }) {
     let timer = 0;
     postComment(article_id, newComment)
       .then(() => {
+        incrementComments();
         setIsLoading(false);
         setMessage(<span id="message">Comment Posted!</span>);
         fetchComments(article_id).then(({ data }) => {
@@ -45,24 +53,27 @@ export default function NewComment({ article_id, comment_count, setComments }) {
   return (
     <section className="form">
       <form onSubmit={handleSubmit}>
-        {message}
+        <span className="comments">
+          {optimisticComments + comment_count} Comments
+        </span>
+        <p>{message}</p>
         <p>
-          <label>Author:</label>
           <input
             id="author"
             author="author_name"
             type="text"
+            placeholder="Author"
             onChange={(event) => setAuthor(event.target.value)}
             value={author}
             required
           />
         </p>
         <p>
-          <label>Comment Body:</label>
           <input
             id="body"
             body="comment_body"
             type="text"
+            placeholder="Comment Body"
             onChange={(event) => setBody(event.target.value)}
             value={body}
             required
