@@ -1,13 +1,17 @@
 import { postComment } from "../api";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../contexts/user";
 import { fetchComments } from "../api";
 
-export default function NewComment({ article_id, comment_count, setComments }) {
+export default function NewComment({
+  article_id,
+  setComments,
+  setOptimisticComments,
+}) {
   const [message, setMessage] = useState("");
-  const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [optimisticComments, setOptimisticComments] = useState(0);
+  const { loggedInUser } = useContext(UserContext);
 
   const incrementComments = () => {
     setOptimisticComments((currOptimisticComments) => {
@@ -18,15 +22,15 @@ export default function NewComment({ article_id, comment_count, setComments }) {
   const handleSubmit = (event) => {
     setIsLoading(true);
     event.preventDefault();
-    setAuthor("");
-    setBody("");
     const newComment = {
-      author: author,
+      author: loggedInUser.username,
       body: body,
     };
     let timer = 0;
+
     postComment(article_id, newComment)
       .then(() => {
+        setBody("");
         incrementComments();
         setIsLoading(false);
         setMessage(<span id="message">Comment Posted!</span>);
@@ -41,7 +45,9 @@ export default function NewComment({ article_id, comment_count, setComments }) {
       })
       .catch(() => {
         setIsLoading(false);
-        setMessage(<span id="error">Please input a valid author</span>);
+        setMessage(
+          <span id="red-message">Please log-in to post comments</span>
+        );
         clearTimeout(timer);
         timer = setTimeout(() => {
           setMessage();
@@ -53,21 +59,6 @@ export default function NewComment({ article_id, comment_count, setComments }) {
   return (
     <section className="form">
       <form onSubmit={handleSubmit}>
-        <span className="comments">
-          {optimisticComments + comment_count} Comments
-        </span>
-        <p>{message}</p>
-        <p>
-          <input
-            id="author"
-            author="author_name"
-            type="text"
-            placeholder="Author"
-            onChange={(event) => setAuthor(event.target.value)}
-            value={author}
-            required
-          />
-        </p>
         <p>
           <input
             id="body"
@@ -79,6 +70,7 @@ export default function NewComment({ article_id, comment_count, setComments }) {
             required
           />
         </p>
+        <p>{message}</p>
         <button type="submit">Add Comment</button>
       </form>
     </section>

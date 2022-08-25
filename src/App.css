@@ -63,10 +63,10 @@ p {
 }
 
 .button-2 {
-  background-color: rgb(109, 255, 209);
+  background-color: rgb(255, 240, 221);
+  color: rgb(187, 11, 46);
   block-size: 1.4rem;
   font-size: 10px;
-  color: rgb(0, 0, 0);
 }
 
 .button-3 {
@@ -76,13 +76,25 @@ p {
   border-radius: 2rem;
 }
 
+.button-4 {
+  background-color: rgb(211, 161, 99);
+  block-size: 1.4rem;
+  font-size: 12px;
+  border-radius: 1rem;
+}
+.button-5 {
+  margin-left: 15px;
+  background-color: rgb(255, 149, 20);
+  border-radius: 2rem;
+  margin-right: 30px;
+}
 h3 {
   font-family: monospace;
   color: rgb(47, 53, 51);
 }
 
 li {
-  list-style: square;
+  list-style: none;
 }
 
 #votes {
@@ -92,7 +104,7 @@ li {
   font-size: 16px;
 }
 
-#error {
+#red-message {
   background-color: white;
   color: rgb(255, 0, 0);
   font-family: monospace;
@@ -138,7 +150,6 @@ li {
 }
 
 #comments-list {
-  list-style: none;
   text-align: center;
   padding-right: 2rem;
 }
@@ -171,5 +182,80 @@ input::placeholder {
 
 #article-body {
   font-family: verdana;
+  font-size: 12px;
   color: rgb(53, 53, 53);
+}
+
+#sort_by {
+  margin-right: 5px;
+  background-color: rgb(211, 161, 99);
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  position: relative;
+  border-radius: 2rem;
+}
+
+#arrow {
+  font-size: 12px;
+  font-family: cursive;
+  background-color: transparent;
+}
+
+#sorting {
+  margin-right: 1.5rem;
+}
+
+#deleting {
+  font-family: monospace;
+  color: red;
+  font-size: 15px;
+}
+
+.user-img {
+  width: 130px;
+  height: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 3px 3px 3px rgb(39, 38, 38);
+  border: solid;
+}
+
+#user {
+  margin-right: 5px;
+  background-color: rgb(255, 255, 255);
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: rgb(21, 21, 21);
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  position: relative;
+  border-radius: 2rem;
+}
+
+#current-user-img {
+  border: solid;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  box-shadow: 3px 3px 3px rgb(39, 38, 38);
+  border-radius: 4rem;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  align-content: center;
+  justify-content: center;
 }

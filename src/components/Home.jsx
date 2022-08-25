@@ -7,7 +7,7 @@ export default function Home() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchArticles().then(({ articles }) => {
+    fetchArticles("created_at").then(({ articles }) => {
       setIsLoading(false);
       setArticles(articles);
     });

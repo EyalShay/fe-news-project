@@ -33,7 +33,11 @@ export default function Article() {
       <p>
         <Votes votes={votes} article_id={article_id} />
       </p>
-      <Comments article_id={article_id} comment_count={comment_count} />
+      <Comments
+        article_id={article_id}
+        comment_count={comment_count}
+        author={author}
+      />
     </section>
   );
 }
