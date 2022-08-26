@@ -8,10 +8,14 @@ export default function Topics() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchTopics().then(({ topics }) => {
-      setIsLoading(false);
-      setTopics(topics);
-    });
+    fetchTopics()
+      .then(({ topics }) => {
+        setIsLoading(false);
+        setTopics(topics);
+      })
+      .catch((err) => {
+        console.log(err, "<<<topic error");
+      });
   }, []);
 
   if (isLoading) return <p>Loading...</p>;

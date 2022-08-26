@@ -3,22 +3,31 @@ import { useEffect, useState } from "react";
 import Comments from "./Comments";
 import { fetchArticle } from "../api";
 import Votes from "./Votes";
+import Errors from "./Errors";
 
 export default function Article() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchArticle(article_id).then(({ article }) => {
-      setIsLoading(false);
-      setArticle(article);
-    });
+    fetchArticle(article_id)
+      .then(({ data }) => {
+        setIsLoading(false);
+        setArticle(data.article);
+      })
+      .catch((err) => {
+        setError({ err });
+      });
   }, [article_id]);
 
   const { created_at, author, title, topic, votes, comment_count, body } =
     article;
+  if (error) {
+    return <Errors />;
+  }
 
   if (isLoading) return <p>Loading...</p>;
 

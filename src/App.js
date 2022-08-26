@@ -9,12 +9,13 @@ import Article from "./components/Article";
 import Topics from "./components/Topics";
 import Users from "./components/Users";
 import { UserContext } from "./contexts/user";
+import Errors from "./components/Errors";
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: "New User",
+    username: "Unknown user",
     avatar_url:
-      "https://www.pngitem.com/pimgs/m/361-3618777_add-account-icon-add-account-icon-png-transparent.png",
-    name: "User Man",
+      "https://static.vecteezy.com/system/resources/previews/004/590/519/original/people-line-icon-with-question-mark-business-solution-business-symbol-simple-illustration-editable-stroke-design-template-vector.jpg",
+    name: "new user",
   });
   return (
     <BrowserRouter>
@@ -23,12 +24,13 @@ function App() {
           <Title />
           <Nav />
           <Routes>
+            <Route path="*" element={<Errors />} />
             <Route path="/" element={<Home />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/articles/:article_id" element={<Article />} />
             <Route path="/topics" element={<Topics />} />
             <Route path="/topics/:topic" element={<Articles />} />
-            <Route path="/users/:username" element={<Users />} />
+            <Route path="/users" element={<Users />} />
           </Routes>
         </div>
       </UserContext.Provider>

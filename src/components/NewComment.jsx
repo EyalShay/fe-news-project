@@ -46,13 +46,13 @@ export default function NewComment({
       .catch(() => {
         setIsLoading(false);
         setMessage(
-          <span id="red-message">Please log-in to post comments</span>
+          <span id="red-message">Please sign in to post a comment</span>
         );
         clearTimeout(timer);
         timer = setTimeout(() => {
           setMessage();
           clearTimeout(timer);
-        }, 3000);
+        }, 4000);
       });
   };
   if (isLoading) return <p>Loading...</p>;
@@ -64,7 +64,7 @@ export default function NewComment({
             id="body"
             body="comment_body"
             type="text"
-            placeholder="Comment Body"
+            placeholder="Leave a comment..."
             onChange={(event) => setBody(event.target.value)}
             value={body}
             required

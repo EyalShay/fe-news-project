@@ -10,7 +10,6 @@ export default function DeleteComment({
   article_id,
   setOptimisticComments,
 }) {
-  const [message, setMessage] = useState("");
   const [isDeleting, setIsDeleting] = useState(null);
   const { loggedInUser } = useContext(UserContext);
   const decrementComments = () => {
@@ -18,7 +17,6 @@ export default function DeleteComment({
       return currOptimisticComments - 1;
     });
   };
-  let timer = 0;
   const handleClick = (event) => {
     event.preventDefault();
     if (loggedInUser.username === author) {
@@ -31,12 +29,6 @@ export default function DeleteComment({
         });
       });
     }
-    setMessage(<span id="red-message">Cannot delete, wrong username!</span>);
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      setMessage();
-      clearTimeout(timer);
-    }, 3000);
   };
   if (isDeleting) return <p id="deleting">Deleting...</p>;
   return (
@@ -44,7 +36,6 @@ export default function DeleteComment({
       <button className="button-3" onClick={handleClick}>
         delete comment
       </button>
-      <p>{message}</p>
     </>
   );
 }

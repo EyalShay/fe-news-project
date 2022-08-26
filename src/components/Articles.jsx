@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import { Link, useParams } from "react-router-dom";
 import Sorting from "./Sorting";
+import Errors from "./Errors";
 
 export default function Articles() {
   const [articlesArray, setArticles] = useState([]);
@@ -9,6 +10,7 @@ export default function Articles() {
   const [orderBy, setOrderBy] = useState("desc");
   const [sortBy, setSortBy] = useState("created_at");
   const { topic } = useParams();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,9 +20,13 @@ export default function Articles() {
         setArticles(articles);
       })
       .catch((err) => {
-        console.log(err, "error articles");
+        setError({ err });
       });
   }, [sortBy, orderBy, topic]);
+
+  if (error) {
+    return <Errors />;
+  }
 
   if (isLoading) return <p>Loading...</p>;
 
