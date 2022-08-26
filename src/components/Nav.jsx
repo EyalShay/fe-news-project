@@ -16,8 +16,12 @@ export default function Nav() {
         <Link to="/topics">
           <button>Topics</button>
         </Link>
-        <Link to="/users/:username">
-          <button>Users</button>
+        <Link to="/users">
+          {loggedInUser.username === "Unknown user" ? (
+            <button>Sign In</button>
+          ) : (
+            <button>Change User</button>
+          )}
         </Link>
       </nav>
       <div className="box">

@@ -32,7 +32,6 @@ export default function Comments({ article_id, comment_count }) {
         setComments={setComments}
         setOptimisticComments={setOptimisticComments}
       />
-      {console.log(comments, "<<<<<commetns")}
       <ul>
         {isLoading === true ? (
           <p>Loading...</p>
@@ -40,7 +39,6 @@ export default function Comments({ article_id, comment_count }) {
           comments
             .sort(orderByDate)
             .map(({ body, comment_id, author, votes, created_at }) => {
-              console.log(author, loggedInUser.username);
               return (
                 <li id="comments-list" key={comment_id}>
                   <p className="author">
