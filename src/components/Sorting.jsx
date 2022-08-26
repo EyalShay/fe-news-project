@@ -29,7 +29,7 @@ export default function Sorting({ setSortBy, setOrderBy, orderBy }) {
       </button>
       <p>
         <button className="button-5" onClick={handleOrderBy}>
-          {`Order ${orderBy}`}
+          {`Order ${orderBy !== undefined ? orderBy : "desc"}`}
         </button>
       </p>
     </div>
