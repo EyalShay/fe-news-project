@@ -91,6 +91,8 @@ p {
 h3 {
   font-family: monospace;
   color: rgb(47, 53, 51);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 li {
@@ -143,6 +145,9 @@ li {
   font-family: georgia;
   font-size: 15px;
   font-weight: 500;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 10px;
 }
 
 #view-comment {
@@ -185,6 +190,8 @@ input::placeholder {
   font-family: verdana;
   font-size: 12px;
   color: rgb(53, 53, 53);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 #sort_by {

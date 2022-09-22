@@ -28,6 +28,7 @@ export default function Home() {
       <h3>
         {title} by {author}
       </h3>
+      <br></br>
       <p id="article-body">{body}</p>
     </div>
   );
